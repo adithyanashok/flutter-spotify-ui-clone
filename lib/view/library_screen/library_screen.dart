@@ -6,7 +6,7 @@ import 'package:spotify_clone/widgets/text_button_widgets.dart';
 import 'package:spotify_clone/widgets/text_widgets.dart';
 
 class LibraryScreen extends StatefulWidget {
-  LibraryScreen({super.key});
+  const LibraryScreen({super.key});
 
   @override
   State<LibraryScreen> createState() => _LibraryScreenState();

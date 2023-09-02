@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/data/music_data.dart';
+import 'package:spotify_clone/playlist/playlist_screen.dart';
 import 'package:spotify_clone/view/core/color/colors.dart';
 import 'package:spotify_clone/widgets/icons_widgets.dart';
 import 'package:spotify_clone/widgets/text_button_widgets.dart';
@@ -15,6 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log(dailymix.length.toString());
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       // AppBar
@@ -110,38 +114,40 @@ class HomeScreen extends StatelessWidget {
               child: buildText(text: "Made for you"),
             ),
             //Padding for sized box
-            buildMusicList(data: dailymix),
+            buildMusicList(data: dailymix, length: dailymix.length),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: buildText(text: "Charts"),
             ),
             //Padding for sized box
-            buildMusicList(data: datas),
+            buildMusicList(data: datas, length: datas.length),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: buildText(text: "More of what you like"),
             ),
             //Padding for sized box
-            buildMusicList(data: other),
+            buildMusicList(data: other, length: other.length),
 
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: buildText(text: "Popular artists"),
             ),
-            buildMusicList(data: artists, roundedImg: true),
+            buildMusicList(
+                data: artists, length: artists.length, roundedImg: true),
 
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: buildText(text: "Trending now"),
             ),
-            buildMusicList(data: trending),
+            buildMusicList(data: trending, length: trending.length),
           ],
         ),
       ),
     );
   }
 
-  Widget buildMusicList({required data, bool roundedImg = false}) {
+  Widget buildMusicList(
+      {required data, required length, bool roundedImg = false}) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -152,45 +158,54 @@ class HomeScreen extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             final music = data[index];
-            return SizedBox(
-              width: 150,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  roundedImg == true
-                      ? ClipRRect(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(100)),
-                          child: Image.network(
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return PlayListScreen();
+                  },
+                ));
+              },
+              child: SizedBox(
+                width: 150,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    roundedImg == true
+                        ? ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(100)),
+                            child: Image.network(
+                              music['imgurl']!,
+                              width: 150,
+                            ),
+                          )
+                        : Image.network(
                             music['imgurl']!,
                             width: 150,
+                            height: 150,
                           ),
-                        )
-                      : Image.network(
-                          music['imgurl']!,
-                          width: 150,
-                          height: 150,
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                      child: Text(
+                        music['title']!,
+                        style: TextStyle(
+                          color: AppColor.colorWhite,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Text(
-                      music['title']!,
-                      style: TextStyle(
-                        color: AppColor.colorWhite,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
           separatorBuilder: (context, index) => const SizedBox(
             width: 10,
           ),
-          itemCount: datas.length,
+          itemCount: length,
         ),
       ),
     );

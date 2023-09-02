@@ -1,6 +1,3 @@
-import 'dart:developer';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/data/grid_view_datas.dart';
 import 'package:spotify_clone/view/core/color/colors.dart';

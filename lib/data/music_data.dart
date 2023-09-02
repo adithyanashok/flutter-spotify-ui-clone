@@ -7,6 +7,11 @@ class MusicData {
     },
     {
       'imgurl':
+          'https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb78cb99533f34d137d2c05f19/2/en/default',
+      'title': 'Daily Mix 2'
+    },
+    {
+      'imgurl':
           'https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb2d1b793dd862c88ae9400025/3/en/default',
       'title': 'Daily Mix 3'
     },
@@ -36,6 +41,11 @@ class MusicData {
       'imgurl':
           'https://i.scdn.co/image/ab67706f00000002e012a183ab8ddeff1d01c76e',
       'title': 'Hot Hits Telugu'
+    },
+    {
+      'imgurl':
+          'https://charts-images.scdn.co/assets/locale_en/regional/daily/region_in_default.jpg',
+      'title': 'Top 50 - India'
     },
     {
       'imgurl':
