@@ -158,11 +158,12 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   roundedImg == true
-                      ? ClipOval(
+                      ? ClipRRect(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(100)),
                           child: Image.network(
                             music['imgurl']!,
-                            width: 190,
-                            height: 180,
+                            width: 150,
                           ),
                         )
                       : Image.network(
@@ -170,6 +171,9 @@ class HomeScreen extends StatelessWidget {
                           width: 150,
                           height: 150,
                         ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Center(
                     child: Text(
                       music['title']!,
