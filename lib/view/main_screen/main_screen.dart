@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/view/home/home_screen.dart';
+import 'package:spotify_clone/view/library_screen/library_screen.dart';
 import 'package:spotify_clone/view/main_screen/bottom_nav.dart';
 import 'package:spotify_clone/view/search_screen/search_screen.dart';
 
@@ -10,8 +11,7 @@ class MainScreen extends StatelessWidget {
     final screens = [
       HomeScreen(),
       SearchScreen(),
-      HomeScreen(),
-      // HomeScreen(),
+      LibraryScreen(),
     ];
     return Scaffold(
       body: SafeArea(

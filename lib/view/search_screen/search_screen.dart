@@ -78,6 +78,7 @@ class SearchScreen extends StatelessWidget {
     return Expanded(
       child: GridView.builder(
         padding: const EdgeInsets.all(15),
+        //<=============Grid Delegate=================>
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 10,
@@ -86,7 +87,6 @@ class SearchScreen extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           final values = data[index];
-          log(values['color'].toString());
           //<=============Container===============>
           return Container(
             decoration: BoxDecoration(

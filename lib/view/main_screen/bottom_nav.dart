@@ -41,10 +41,6 @@ class BottomNavBarWidget extends StatelessWidget {
               icon: Icon(Icons.library_books_sharp),
               label: "Your Library",
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.music_note),
-              label: "Premium",
-            ),
           ],
         );
       },
