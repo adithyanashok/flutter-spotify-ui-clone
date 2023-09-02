@@ -73,11 +73,17 @@ class _LibraryScreenState extends State<LibraryScreen> {
                       gridView = !gridView;
                     });
                   },
-                  child: Icon(
-                    Icons.grid_view_outlined,
-                    size: 19,
-                    color: AppColor.colorWhite,
-                  ),
+                  child: gridView == false
+                      ? Icon(
+                          Icons.grid_view_outlined,
+                          size: 19,
+                          color: AppColor.colorWhite,
+                        )
+                      : Icon(
+                          Icons.list_outlined,
+                          size: 20,
+                          color: AppColor.colorWhite,
+                        ),
                 ),
               ),
             ],
