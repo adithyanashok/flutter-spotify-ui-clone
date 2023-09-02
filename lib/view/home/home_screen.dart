@@ -1,9 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/data/music_data.dart';
-import 'package:spotify_clone/main_screen/bottom_nav.dart';
 import 'package:spotify_clone/view/core/color/colors.dart';
+import 'package:spotify_clone/widgets/icons_widgets.dart';
+import 'package:spotify_clone/widgets/text_widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -104,6 +103,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             // Chart section
+            //<==================Listing contents(Musics, Albums, Artists)==============>
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: buildText(text: "Made for you"),
@@ -205,37 +205,6 @@ class HomeScreen extends StatelessWidget {
           ),
           itemCount: datas.length,
         ),
-      ),
-    );
-  }
-
-  Widget buildSubText({required String text}) {
-    return Text(
-      text,
-      style: TextStyle(
-        color: AppColor.colorWhite,
-      ),
-    );
-  }
-
-  Widget buildIcon({required IconData icon}) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Icon(
-        icon,
-        size: 30,
-        color: AppColor.colorWhite,
-      ),
-    );
-  }
-
-  Widget buildText({required String text}) {
-    return Text(
-      text,
-      style: TextStyle(
-        color: AppColor.colorWhite,
-        fontSize: 26,
-        fontWeight: FontWeight.w600,
       ),
     );
   }

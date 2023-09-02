@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/main_screen/bottom_nav.dart';
 import 'package:spotify_clone/view/home/home_screen.dart';
+import 'package:spotify_clone/view/main_screen/bottom_nav.dart';
+import 'package:spotify_clone/view/search_screen/search_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -8,7 +9,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screens = [
       HomeScreen(),
-      HomeScreen(),
+      SearchScreen(),
       HomeScreen(),
       // HomeScreen(),
     ];
